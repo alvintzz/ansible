@@ -1,0 +1,11 @@
+---
+- name: Playbook
+  hosts: "hello-world"
+  vars:
+    service_name: hello-world
+    service_owner: core-team
+
+    nginx_config_file: "devops/nginx/hello-world.cfg"
+
+  roles:
+    - nginx

@@ -1,0 +1,27 @@
+---
+- name: 'Install Nginx'
+  apt:
+    name: 'nginx=1.18.0'
+    state: 'present'
+
+- name: "Start Nginx"
+  service:
+    name: 'nginx'
+    state: 'started'
+
+- name: 'Copy Nginx config file to sites-available'
+  copy:
+      src: {{ nginx_config_file }}
+      dest: '/etc/nginx/sites-available/default_config.cfg'
+  when: nginx_config_file | length > 0
+
+- name: 'Create sysmlink sites-available to sites-enabled'
+  copy:
+      src: '/etc/nginx/sites-available/default_config.cfg'
+      dest: '/etc/nginx/sites-enabled/default'
+  when: nginx_config_file | length > 0
+
+- name: 'Restart Nginx'
+  service:
+      name: nginx
+      state: restarted

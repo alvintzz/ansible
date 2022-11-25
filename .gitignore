@@ -1,0 +1,8 @@
+/vendor
+.idea/
+/test
+/.scannerwork
+test.out
+.vscode/
+/bin
+*.log
