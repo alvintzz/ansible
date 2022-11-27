@@ -16,3 +16,15 @@
   copy:
       src: "{{ jenkins_workspace }}/{{ socketmaster_file }}"
       dest: '/usr/bin/socketmaster'
+
+- name: "Start Golang Service"
+  become: yes
+  service:
+    name: 'testapp'
+    state: 'started'
+
+- name: 'Restart Golang Service'
+  become: yes
+  service:
+      name: 'testapp'
+      state: 'restarted'
