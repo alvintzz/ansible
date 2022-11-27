@@ -4,6 +4,7 @@
   copy:
       src: "{{ jenkins_workspace }}/{{ repository_dir }}/{{ repository_name }}"
       dest: '/usr/bin/{{ repository_name }}'
+      mode: '755'
 
 - name: 'Copy Service Init to Production Servers'
   become: yes
@@ -16,6 +17,7 @@
   copy:
       src: "{{ jenkins_workspace }}/{{ socketmaster_file }}"
       dest: '/usr/bin/socketmaster'
+      mode: '755'
 
 - name: "Start Golang Service"
   become: yes
