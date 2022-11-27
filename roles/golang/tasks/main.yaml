@@ -9,7 +9,7 @@
   become: yes
   copy:
       src: "{{ jenkins_workspace }}/{{ repository_dir }}/{{ init_config_file }}"
-      dest: '/etc/init.d/{{ repository_name }}'
+      dest: '/etc/systemd/system/{{ repository_name }}.service'
 
 - name: 'Copy Socketmaster Binary to Production Servers'
   become: yes
