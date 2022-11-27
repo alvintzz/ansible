@@ -6,7 +6,7 @@
     service_owner: "{{ lookup('env','SERVICE_OWNER') }}"
 
     jenkins_workspace: "{{ lookup('env','WORKSPACE') }}"
-    repository_dir: "{{ REPOSITORY_DIR }}"
+    repository_dir: "{{ lookup('env','REPOSITORY_DIR') }}"
     nginx_config_file: "{{ lookup('env','NGINX_CONFIG_FILE') }}"
 
   roles:
