@@ -2,7 +2,7 @@
 - name: 'Copy Golang Binary to Production Servers'
   become: yes
   copy:
-      src: "{{ jenkins_workspace }}/{{ repository_dir }}/{{ binary_file }}"
+      src: "{{ jenkins_workspace }}/{{ repository_dir }}/{{ repository_name }}"
       dest: '/usr/bin/{{ repository_name }}'
 
 - name: 'Copy Service Init to Production Servers'
