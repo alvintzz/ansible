@@ -7,7 +7,12 @@
 
     jenkins_workspace: "{{ lookup('env','WORKSPACE') }}"
     repository_dir: "{{ lookup('env','REPOSITORY_DIR') }}"
+    repository_name: "{{ lookup('env','REPOSITORY_NAME') }}"
+    binary_file: "{{ lookup('env','BINARY_DIR') }}"
     nginx_config_file: "{{ lookup('env','NGINX_CONFIG_FILE') }}"
+    init_config_file: "{{ lookup('env','INIT_CONFIG_FILE') }}"
+    socketmaster_file: "{{ lookup('env','REPOSITORY_DIR') }}/socketmaster"
 
   roles:
     - nginx
+    - golang

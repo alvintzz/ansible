@@ -1,0 +1,18 @@
+---
+- name: 'Copy Golang Binary to Production Servers'
+  become: yes
+  copy:
+      src: "{{ jenkins_workspace }}/{{ repository_dir }}/{{ binary_file }}"
+      dest: '/usr/bin/{{ repository_name }}'
+
+- name: 'Copy Service Init to Production Servers'
+  become: yes
+  copy:
+      src: "{{ jenkins_workspace }}/{{ repository_dir }}/{{ init_config_file }}"
+      dest: '/etc/init.d/{{ repository_name }}'
+
+- name: 'Copy Socketmaster Binary to Production Servers'
+  become: yes
+  copy:
+      src: "{{ jenkins_workspace }}/{{ socketmaster_file }}"
+      dest: '/usr/bin/socketmaster'
