@@ -11,6 +11,10 @@
     name: 'nginx'
     state: 'started'
 
+- name: 'Debug Nginx_Config_DFile'
+  debug:
+      msg: "result = {{ lookup('env','REPOSITORY_DIR') }}/{{ nginx_config_file }}"
+
 - name: 'Copy Nginx config file to sites-available'
   become: yes
   copy:
