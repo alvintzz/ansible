@@ -11,9 +11,17 @@
     name: 'nginx'
     state: 'started'
 
+- name: 'Debug Repository Dir'
+  debug:
+      msg: "repo_dir = {{ lookup('env','REPOSITORY_DIR') }}"
+
 - name: 'Debug Nginx_Config_DFile'
   debug:
-      msg: "result = {{ lookup('env','REPOSITORY_DIR') }}/{{ nginx_config_file }}"
+      msg: "nginx env = {{ lookup('env','NGINX_CONFIG_FILE') }}"
+
+- name: 'Debug Nginx_Config Var'
+  debug:
+      msg: "nginx var = {{ nginx_config_file }}"
 
 - name: 'Copy Nginx config file to sites-available'
   become: yes
