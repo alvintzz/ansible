@@ -11,14 +11,15 @@
 
 - name: 'Copy Nginx config file to sites-available'
   copy:
-      src: {{ nginx_config_file }}
+      src: "{{ nginx_config_file }}"
       dest: '/etc/nginx/sites-available/default_config.cfg'
   when: nginx_config_file | length > 0
 
 - name: 'Create sysmlink sites-available to sites-enabled'
-  copy:
+  file:
       src: '/etc/nginx/sites-available/default_config.cfg'
       dest: '/etc/nginx/sites-enabled/default'
+      state: link
   when: nginx_config_file | length > 0
 
 - name: 'Restart Nginx'

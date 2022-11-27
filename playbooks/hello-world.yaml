@@ -1,6 +1,6 @@
 ---
 - name: Playbook
-  hosts: "hello-world"
+  hosts: "helloworld"
   vars:
     service_name: hello-world
     service_owner: core-team
