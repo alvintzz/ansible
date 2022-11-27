@@ -2,9 +2,11 @@
 - name: Playbook
   hosts: "helloworld"
   vars:
-    service_name: hello-world
-    service_owner: core-team
+    service_name: "{{ lookup('env','SERVICE_NAME') }}"
+    service_owner: "{{ lookup('env','SERVICE_OWNER') }}"
 
+    jenkins_workspace: "{{ lookup('env','WORKSPACE') }}"
+    repository_dir: "{{ REPOSITORY_DIR }}"
     nginx_config_file: "{{ lookup('env','NGINX_CONFIG_FILE') }}"
 
   roles:

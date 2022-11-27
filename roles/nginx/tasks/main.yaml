@@ -30,7 +30,7 @@
 - name: 'Copy Nginx config file to sites-available'
   become: yes
   copy:
-      src: "{{ lookup('env','REPOSITORY_DIR') }}/{{ nginx_config_file }}"
+      src: "{{ jenkins_workspace }}/{{ respository_dir }}/{{ nginx_config_file }}"
       dest: '/etc/nginx/sites-available/default_config.cfg'
   when: nginx_config_file | length > 0
 
