@@ -14,7 +14,7 @@
 - name: 'Copy Nginx config file to sites-available'
   become: yes
   copy:
-      src: "{{ nginx_config_file }}"
+      src: "./{{ nginx_config_file }}"
       dest: '/etc/nginx/sites-available/default_config.cfg'
   when: nginx_config_file | length > 0
 
