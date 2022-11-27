@@ -1,5 +1,11 @@
 ---
 - name: Playbook
   hosts: "helloworld"
+  vars:
+    service_name: hello-world
+    service_owner: core-team
+
+    nginx_config_file: "{{ lookup('env','NGINX_CONFIG_FILE') }}"
+
   roles:
     - nginx

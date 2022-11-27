@@ -14,9 +14,9 @@
 - name: 'Copy Nginx config file to sites-available'
   become: yes
   copy:
-      src: "{{ lookup('env','REPOSITORY_DIR') }}/{{ lookup('env','NGINX_CONFIG_FILE') }}"
+      src: "{{ lookup('env','REPOSITORY_DIR') }}/{{ nginx_config_file }}"
       dest: '/etc/nginx/sites-available/default_config.cfg'
-  when: NGINX_CONFIG_FILE | length > 0
+  when: nginx_config_file | length > 0
 
 - name: 'Create sysmlink sites-available to sites-enabled'
   become: yes
@@ -24,7 +24,7 @@
       src: '/etc/nginx/sites-available/default_config.cfg'
       dest: '/etc/nginx/sites-enabled/default'
       state: link
-  when: NGINX_CONFIG_FILE | length > 0
+  when: nginx_config_file | length > 0
 
 - name: 'Restart Nginx'
   become: yes
