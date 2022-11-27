@@ -1,6 +1,6 @@
 ---
 - name: Playbook
-  hosts: "helloworld"
+  hosts: "label_service_hello_world"
   vars:
     service_name: "{{ lookup('env','SERVICE_NAME') }}"
     service_owner: "{{ lookup('env','SERVICE_OWNER') }}"
