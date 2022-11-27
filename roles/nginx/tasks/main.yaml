@@ -23,6 +23,10 @@
   debug:
       msg: "nginx var = {{ nginx_config_file }}"
 
+- name: 'Debug Workspace'
+  debug:
+      msg: "nginx var = {{ lookup('env','WORKSPACE') }}"
+
 - name: 'Copy Nginx config file to sites-available'
   become: yes
   copy:
